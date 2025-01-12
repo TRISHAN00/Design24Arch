@@ -1,0 +1,1 @@
+sass --watch "E:\design24Arch\assets\scss\main.scss":"E:\design24Arch\assets\css\style.css"
