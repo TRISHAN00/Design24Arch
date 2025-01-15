@@ -1,0 +1,97 @@
+@use "../../utils" as *;
+
+.featured-area {
+  padding: 150px 0px;
+  background-color: #eae6d6;
+  overflow: hidden;
+
+  /* Tablet desktop :768px. */
+  @media (min-width: 768px) and (max-width: 991px) {
+    padding: 120px 0px;
+  }
+
+  /* small mobile :320px. */
+  @media (max-width: 767px) {
+    padding: 120px 0px;
+  }
+
+  .single-feature {
+    &-text {
+      h4 {
+        color: #222222a8;
+      }
+
+      h5 {
+        color: rgba(69, 74, 76, 0.502);
+      }
+    }
+    &-wrap {
+      position: relative;
+      padding-top: calc(350 / 420 * 100%);
+      &-img {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: 1.4s ease;
+        }
+      }
+    }
+  }
+
+  .feature {
+    &-subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21.6px;
+      text-align: center;
+    }
+
+    &-slider {
+      &-wrap {
+        margin-top: 80px;
+
+        img {
+          border-radius: 5px;
+          overflow: hidden;
+        }
+
+        /* Tablet desktop :768px. */
+        @media (min-width: 768px) and (max-width: 991px) {
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+
+        /* small mobile :320px. */
+        @media (max-width: 767px) {
+          margin-top: 40px;
+          margin-left: 15px;
+          margin-right: 15px;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 70.4px;
+      text-align: center;
+
+      /* Tablet desktop :768px. */
+      @media (min-width: 768px) and (max-width: 991px) {
+        font-size: 60px; /* Adjust as needed */
+      }
+
+      /* small mobile :320px. */
+      @media (max-width: 767px) {
+        font-size: 30px; /* Adjust as needed */
+        line-height: 40px;
+      }
+    }
+  }
+}

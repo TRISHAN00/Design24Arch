@@ -5,10 +5,14 @@
 /*----------------------------------------*/
 header {
   padding-top: 30px;
-  position: relative;
+  position: absolute;
+  content: "";
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
 
   .header-top {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
     padding-bottom: 25px;
 
     .header-social {
@@ -16,6 +20,13 @@ header {
         list-style: none;
         display: flex;
         gap: 30px;
+
+        li {
+          a {
+            font-size: 20px;
+            color: white;
+          }
+        }
       }
 
       @media (max-width: 767px) {
@@ -27,6 +38,7 @@ header {
       a {
         h1 {
           margin-bottom: unset;
+          color: white;
 
           @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
             font-size: 25px;
@@ -37,6 +49,7 @@ header {
 
     .mobile-menu-open-icon {
       display: none;
+      color: white;
 
       @media (max-width: 767px) {
         display: block;
@@ -45,6 +58,7 @@ header {
 
     .header-phone {
       display: block;
+      color: white;
 
       @media (max-width: 767px) {
         display: none;
@@ -62,8 +76,14 @@ header {
     ul {
       list-style: none;
       display: flex;
-      gap: 60px;
+      gap: 50px;
       justify-content: center;
+
+      li {
+        a {
+          color: white;
+        }
+      }
 
       @media (max-width: 767px) {
         gap: 30px;
@@ -78,102 +98,16 @@ header {
       display: none;
     }
   }
+}
 
-  .mobile-menu {
-    background-color: var(--tp-common-black);
-    width: 60%;
-    transition: all 0.5s ease-in-out;
-    position: fixed;
-    top: 0;
-    right: -100%; /* Start hidden */
-    height: 100vh;
-    padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 1000;
-    display: none;
-
-    /* Tablet desktop :768px. */
-    @media (min-width: 768px) and (max-width: 991px) {
-      display: block;
-    }
-
-    /* small mobile :320px. */
-    @media (max-width: 767px) {
-      display: block;
-      padding: 30px 15px;
-    }
-
-    .mobile-menu-close-icon {
-      font-size: 32px;
-      color: white;
-
-      @media (max-width: 767px) {
-        font-size: 22px;
-      }
-    }
-
-    .header-logo {
-      a {
-        h1 {
-          font-size: 33px;
-          color: white;
-          margin: 0;
-
-          /* small mobile :320px. */
-          @media (max-width: 767px) {
-            font-size: 22px;
-          }
-        }
-      }
-    }
-
-    ul.mobile-menu-nav {
-      margin-top: 40px;
-      list-style: none;
-
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
-      li {
-        a {
-          color: white;
-          font-size: 20px;
-        }
-      }
-    }
-
-    .mobile-menu-footer {
-      .header-social {
-        ul {
-          list-style: none;
-          display: flex;
-          gap: 30px;
-          margin-top: 20px;
-          margin-bottom: 20px;
-
-          li {
-            a {
-              color: white;
-              font-size: 20px;
-            }
-          }
-        }
-      }
-
-      .header-phone {
-        a {
-          color: white;
-          font-size: 20px;
-        }
-      }
-    }
-
-    @media (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
-      width: 90%;
-      display: flex;
-    }
-  }
+/* Menu Open Overlay */
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Behind the menu */
 }

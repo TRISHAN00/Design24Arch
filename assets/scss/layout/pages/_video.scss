@@ -1,19 +1,80 @@
-@use '../../utils' as *;
+@use "../../utils" as *;
 
 /*----------------------------------------*/
 /*  6.15 Testimonial
 /*----------------------------------------*/
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
 
-.tp-video-area{
-    padding: 300px 30px;
-    background-position: center;
-    @media #{$lg}{
-        padding: 200px 30px;
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensures it covers the entire section */
+    object-fit: cover; /* Ensures the video scales properly */
+    z-index: -2; /* Place the video at the bottom */
+  }
+
+  &-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Full screen overlay */
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: -1; /* Place above the video but below content */
+  }
+
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center content */
+    text-align: center;
+    color: var(--tp-white);
+    z-index: 1; /* Keep it above the overlay */
+  }
+
+  &-title {
+    font-size: 100px; /* Adjust as needed */
+    color: var(--tp-white);
+    margin-bottom: 1rem;
+
+    /* Normal desktop :1200px. */
+    @media (min-width: 1200px) and (max-width: 1500px) {
+      font-size: 80px; /* Adjust as needed */
     }
-    @media #{$xl}{
-        padding: 200px 30px;
+
+    /* Normal desktop :992px. */
+    @media (min-width: 992px) and (max-width: 1200px) {
+      font-size: 60px; /* Adjust as needed */
     }
-    @media #{$xs,$md}{
-        padding: 150px 30px;
+
+    /* Tablet desktop :768px. */
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 60px; /* Adjust as needed */
     }
+
+    /* small mobile :320px. */
+    @media (max-width: 767px) {
+      font-size: 38px; /* Adjust as needed */
+    }
+  }
+
+  &-description {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+    color: var(--tp-white);
+
+    /* small mobile :320px. */
+    @media (max-width: 767px) {
+      font-size: 12px; /* Adjust as needed */
+      line-height: 20px;
+    }
+  }
 }

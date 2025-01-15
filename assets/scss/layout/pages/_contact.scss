@@ -1,111 +1,100 @@
-@use '../../utils' as *;
+@use "../../utils" as *;
 
 /*----------------------------------------*/
 /*  6.4 Contact
 /*----------------------------------------*/
 
+.contact-area {
+  padding: 100px 20px; /* Adjusted for better mobile experience */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 10px;
 
-.fs-100{
-    font-size: 100px;
-    @media #{$xl}{
-        font-size: 85px;
-    }
-    @media #{$xs}{
-        font-size: 70px;
-    }
-}
-.tpform-title{
-    font-size: 30px;
-}
-.contact-form-box{
-    & input, & textarea{
-        border-color: #57595c;
-    }
-}
-.tp-contact-img{
-    & img{
-        max-width: inherit;
-        margin-left: -40px;
-        @media #{$xl,$lg,$md,$xs}{
-            margin: 0px;
-            max-width: 100%;
-        }
-    }
-}
-.tp-contact-form-box{
-    & input, & textarea{
-        height:60px;
-        border: 1px solid #57595C;
-        padding: 0 25px;
-        border-radius: 10px;
-        font-weight: 500;
-    }
-    & .p-relative {
-        & i {
-            position: absolute;
-            right: 25px;
-            top: 22px;
-        }
-    }
-    & textarea{
-        height: 160px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
+  .contact-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
 
-.tp-contact{
-    &-info {
-        border: 1px solid #57595C;
-        padding: 50px 40px;
-        border-radius: 15px;
-        &-icon {
-            & span {
-                font-size: 85px;
-                color: #000001;
-            }
-        }
-        &-text {
-            & span {
-                font-size: 15px;
-                font-weight: 500;
-                text-transform: uppercase;
-            }
-            & p {
-                font-size: 30px;
-                color: #0A0E1A;
-                line-height: 1.2;
-                font-family: var(--tp-font-heading);
-                margin: 0;
-                @media #{$xl}{
-                    font-size: 25px;
-                }
-                @media #{$xs}{
-                    font-size: 20px;
-                }
-                @media #{$sm}{
-                    font-size: 25px;
-                }
-                a{
-                    &:hover{
-                        color: var(--tp-theme-color);
-                    }
-                }
-            }
-        }
+  .form-group {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 8px;
     }
+
+    input,
+    textarea {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #333;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: rgb(0, 0, 0, 0.2);
+      }
+
+      &:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+  }
+
+  .contact-btn {
+    margin-top: 40px;
+    text-align: center;
+
+    button {
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
 }
 
-.tp-map-area iframe {
-	height: 700px;
-	width: 100%;
-    @media #{$xl}{
-        height: 600px;
+@media (max-width: 768px) {
+  .contact-area {
+    padding: 60px 15px;
+
+    .contact-title {
+      font-size: 1.8rem;
     }
-    @media #{$lg}{
-        height: 500px;
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        font-size: 0.9rem;
+      }
     }
-    @media #{$md,$xs}{
-        height: 400px;
+
+    .contact-btn button {
+      font-size: 1rem;
+      padding: 10px 20px;
     }
+  }
 }
